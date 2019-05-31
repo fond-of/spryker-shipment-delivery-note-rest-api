@@ -20,23 +20,11 @@ class ShipmentDeliveryNotesRestApiConfig extends AbstractBundleConfig
 
     public const RESPONSE_CODE_ITEM_VALIDATION = '102';
     public const RESPONSE_CODE_ITEM_NOT_FOUND = '103';
-    public const RESPONSE_CODE_INVOICE_ID_MISSING = '104';
-    public const RESPONSE_CODE_FAILED_CREATING_INVOICE = '107';
-
+    public const RESPONSE_CODE_SHIPMENT_DELIVERY_NOTE_ID_MISSING = '104';
+    public const RESPONSE_CODE_FAILED_CREATING_SHIPMENT_DELIVERY_NOTE = '107';
 
     public const QUERY_STRING_PARAMETER_ORDER_REFERENCE = 'order_reference';
 
-   /* public const EXCEPTION_MESSAGE_INVOICE_ID_MISSING = 'Invoice uuid is missing.';
-    public const EXCEPTION_MESSAGE_FAILED_TO_CREATE_INVOICE = 'Failed to create invoice.';
-    public const EXCEPTION_MESSAGE_INVOICE_WITH_ID_NOT_FOUND = 'Invoice with given uuid not found.';
-    
-    public const REST_RESOURCE_ATTRIBUTE_ORDER_REFERENCE = "orderReference";
-    public const REST_RESOURCE_ATTRIBUTE_CUSTOMER_REFERENCE = "customerReference";
-
-    public const RESPONSE_CODE_INVOICE_NOT_FOUND = '101';
-    public const RESPONSE_DETAILS_INVOICE_NOT_FOUND = 'Invoice not found.';
-    public const RESPONSE_MESSAGE_INVOICE_CANT_CREATE_INVOICE = 'Invoice can not be created';
-
-    public const QUERY_STRING_PARAMETER_CUSTOMER_REFERENCE = 'customer_reference';*/
+    public const RESPONSE_MESSAGE_SHIPMENT_DELIVERY_NOTE_CANT_CREATE_SHIPMENT_DELIVERY_NOTE = 'Shipment delivery note can not be created';
 
 }

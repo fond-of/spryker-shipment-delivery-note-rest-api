@@ -4,6 +4,7 @@ namespace FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Plugin\ResourceRoute;
 
 use FondOfSpryker\Glue\InvoicesRestApi\InvoicesRestApiConfig;
 use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\ShipmentDeliveryNotesRestApiConfig;
+use Generated\Shared\Transfer\RestShipmentDeliveryNotesAttributesTransfer;
 use Generated\Shared\Transfer\RestShipmentDeliveryNotesTransfer;
 use Spryker\Glue\GlueApplicationExtension\Dependency\Plugin\ResourceRouteCollectionInterface;
 use Spryker\Glue\GlueApplicationExtension\Dependency\Plugin\ResourceRoutePluginInterface;
@@ -65,6 +66,6 @@ class ShipmentDeliveryNotesResourceRoutePlugin extends AbstractPlugin implements
      */
     public function getResourceAttributesClassName(): string
     {
-        return RestShipmentDeliveryNotesTransfer::class;
+        return RestShipmentDeliveryNotesAttributesTransfer::class;
     }
 }

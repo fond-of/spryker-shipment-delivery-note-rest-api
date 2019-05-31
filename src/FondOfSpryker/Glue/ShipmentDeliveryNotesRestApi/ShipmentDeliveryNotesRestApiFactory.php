@@ -6,6 +6,8 @@ use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Dependency\Client\ShipmentDe
 use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Processor\Mapper\ShipmentDeliveryNoteResourceMapper;
 use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Processor\Mapper\ShipmentDeliveryNoteResourceMapperInterface;
 use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Processor\ShipmentDeliveryNote\ShipmentDeliveryNoteReader;
+use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Processor\ShipmentDeliveryNote\ShipmentDeliveryNoteWriter;
+use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Processor\ShipmentDeliveryNote\ShipmentDeliveryNoteWriterInterface;
 use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Processor\Validation\RestApiError;
 use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Processor\Validation\RestApiErrorInterface;
 use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Processor\Validation\RestApiValidator;
@@ -28,21 +30,18 @@ class ShipmentDeliveryNotesRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\CustomersRestApi\Processor\Customer\CustomerWriterInterface
-     */
-    /*public function createInvoiceWriter(): InvoiceWriterInterface
+
+    public function createShipmentDeliveryNoteWriter(): ShipmentDeliveryNoteWriterInterface
     {
-        return new InvoiceWriter(
-            $this->getInvoiceClient(),
-            $this->createInvoiceReader(),
+        return new ShipmentDeliveryNoteWriter(
+            $this->getShipmentDeliveryNoteClient(),
+            $this->createShipmentDeliveryNoteReader(),
             $this->getResourceBuilder(),
-            $this->createInvoiceResourceMapper(),
+            $this->createShipmentDeliveryNoteResourceMapper(),
             $this->createRestApiError(),
-            $this->createRestApiValidator(),
-            $this->getInvoicePostCreatePlugins()
+            $this->createRestApiValidator()
         );
-    }*/
+    }
     /**
      * @return \FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Dependency\Client\ShipmentDeliveryNotesRestApiToShipmentDeliveryNoteClientInterface
      */

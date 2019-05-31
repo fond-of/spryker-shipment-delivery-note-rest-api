@@ -2,9 +2,7 @@
 
 namespace FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Controller;
 
-use Generated\Shared\Transfer\RestInvoiceItemsTransfer;
-use Generated\Shared\Transfer\RestInvoicesAttributesTransfer;
-use Generated\Shared\Transfer\RestInvoicesTransfer;
+use Generated\Shared\Transfer\RestShipmentDeliveryNotesAttributesTransfer;
 use Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface;
 use Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface;
 use Spryker\Glue\Kernel\Controller\AbstractController;
@@ -49,5 +47,35 @@ class ShipmentDeliveryNotesResourceController extends AbstractController
         return $this->getFactory()->createShipmentDeliveryNoteReader()->getShipmentDeliveryNoteAttributes($restRequest);
     }
 
+    /**
+     * @Glue({
+     *     "post": {
+     *          "summary": [
+     *              "Adds an invoice"
+     *          ],
+     *          "parameters": [{
+     *              "name": "Accept-Language",
+     *              "in": "header"
+     *          }],
+     *          "responses": {
+     *              "400": "Order Reference is missing.",
+     *              "404": "Order not found.",
+     *              "422": "Errors appeared during item creation."
+     *          }
+     *     }
+     * })
+     *
+     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
+     * @param \Generated\Shared\Transfer\RestInvoicesTransfer $restInvoicesTransfer
+     *
+     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
+     */
+    public function postAction(
+        RestRequestInterface $restRequest,
+        RestShipmentDeliveryNotesAttributesTransfer $restShipmentDeliveryNotesAttributesTransfer
+    ): RestResponseInterface
+    {
+        return $this->getFactory()->createShipmentDeliveryNoteWriter()->createShipmentDeliveryNote($restShipmentDeliveryNotesAttributesTransfer);
+    }
 
 }
