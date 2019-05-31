@@ -2,17 +2,14 @@
 
 namespace FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi;
 
-use FondOfSpryker\Glue\InvoicesRestApi\Processor\Invoice\InvoiceReader;
-use FondOfSpryker\Glue\InvoicesRestApi\Dependency\Client\InvoicesRestApiToInvoiceClientInterface;
-use FondOfSpryker\Glue\InvoicesRestApi\Processor\Invoice\InvoiceReaderInterface;
-use FondOfSpryker\Glue\InvoicesRestApi\Processor\Invoice\InvoiceWriter;
-use FondOfSpryker\Glue\InvoicesRestApi\Processor\Invoice\InvoiceWriterInterface;
-use FondOfSpryker\Glue\InvoicesRestApi\Processor\Mapper\InvoiceResourceMapper;
-use FondOfSpryker\Glue\InvoicesRestApi\Processor\Mapper\InvoiceResourceMapperInterface;
-use FondOfSpryker\Glue\InvoicesRestApi\Processor\Validation\RestApiError;
-use FondOfSpryker\Glue\InvoicesRestApi\Processor\Validation\RestApiErrorInterface;
-use FondOfSpryker\Glue\InvoicesRestApi\Processor\Validation\RestApiValidator;
-use FondOfSpryker\Glue\InvoicesRestApi\Processor\Validation\RestApiValidatorInterface;
+use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Dependency\Client\ShipmentDeliveryNotesRestApiToShipmentDeliveryNoteClientInterface;
+use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Processor\Mapper\ShipmentDeliveryNoteResourceMapper;
+use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Processor\Mapper\ShipmentDeliveryNoteResourceMapperInterface;
+use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Processor\ShipmentDeliveryNote\ShipmentDeliveryNoteReader;
+use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Processor\Validation\RestApiError;
+use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Processor\Validation\RestApiErrorInterface;
+use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Processor\Validation\RestApiValidator;
+use FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Processor\Validation\RestApiValidatorInterface;
 use Spryker\Glue\Kernel\AbstractFactory;
 
 class ShipmentDeliveryNotesRestApiFactory extends AbstractFactory
@@ -20,11 +17,11 @@ class ShipmentDeliveryNotesRestApiFactory extends AbstractFactory
     /**
      * @return \Spryker\Glue\OrdersRestApi\Processor\Order\OrderReaderInterface
      */
-    public function createInvoiceReader(): InvoiceReaderInterface
+    public function createShipmentDeliveryNoteReader(): ShipmentDeliveryNoteReader
     {
-        return new InvoiceReader(
-            $this->getInvoiceClient(),
-            $this->createInvoiceResourceMapper(),
+        return new ShipmentDeliveryNoteReader(
+            $this->getShipmentDeliveryNoteClient(),
+            $this->createShipmentDeliveryNoteResourceMapper(),
             $this->getResourceBuilder(),
             $this->createRestApiError(),
             $this->createRestApiValidator()
@@ -34,7 +31,7 @@ class ShipmentDeliveryNotesRestApiFactory extends AbstractFactory
     /**
      * @return \Spryker\Glue\CustomersRestApi\Processor\Customer\CustomerWriterInterface
      */
-    public function createInvoiceWriter(): InvoiceWriterInterface
+    /*public function createInvoiceWriter(): InvoiceWriterInterface
     {
         return new InvoiceWriter(
             $this->getInvoiceClient(),
@@ -45,21 +42,21 @@ class ShipmentDeliveryNotesRestApiFactory extends AbstractFactory
             $this->createRestApiValidator(),
             $this->getInvoicePostCreatePlugins()
         );
-    }
+    }*/
     /**
-     * @return \FondOfSpryker\Glue\InvoiceRestApi\Dependency\Client\InvoicesRestApiToInvoiceClientInterface
+     * @return \FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Dependency\Client\ShipmentDeliveryNotesRestApiToShipmentDeliveryNoteClientInterface
      */
-    public function getInvoiceClient(): InvoicesRestApiToInvoiceClientInterface
+    public function getShipmentDeliveryNoteClient(): ShipmentDeliveryNotesRestApiToShipmentDeliveryNoteClientInterface
     {
-        return $this->getProvidedDependency(InvoicesRestApiDependencyProvider::CLIENT_INVOICE);
+        return $this->getProvidedDependency(ShipmentDeliveryNotesRestApiDependencyProvider::CLIENT_SHIPMENT_DELIVERY_NOTE);
     }
 
     /**
-     * @return \FondOfSpyker\Glue\InvoicesRestApi\Processor\Mapper\InvoicesResourceMapperInterface
+     * @return \FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\Processor\Mapper\ShipmentDeliveryNoteResourceMapperInterface
      */
-    public function createInvoiceResourceMapper(): InvoiceResourceMapperInterface
+    public function createShipmentDeliveryNoteResourceMapper(): ShipmentDeliveryNoteResourceMapperInterface
     {
-        return new InvoiceResourceMapper();
+        return new ShipmentDeliveryNoteResourceMapper();
     }
 
     /**
@@ -81,8 +78,8 @@ class ShipmentDeliveryNotesRestApiFactory extends AbstractFactory
     /**
      * @return \FondOfSpryker\Glue\InvoicesRestApiExtension\Dependency\Plugin\Invoice PostRegisterPluginInterface[]
      */
-    public function getInvoicePostCreatePlugins(): array
+    public function getShipmentDeliveryNotePostCreatePlugins(): array
     {
-        return $this->getProvidedDependency(InvoicesRestApiDependencyProvider::PLUGINS_INVOICE_POST_CREATE);
+        return $this->getProvidedDependency(ShipmentDeliveryNotesRestApiDependencyProvider::PLUGINS_INVOICE_POST_CREATE);
     }
 }

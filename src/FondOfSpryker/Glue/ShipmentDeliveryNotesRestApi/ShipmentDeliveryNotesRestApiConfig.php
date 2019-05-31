@@ -9,7 +9,7 @@ class ShipmentDeliveryNotesRestApiConfig extends AbstractBundleConfig
     public const RESOURCE_SHIPMENT_DELIVERY_NOTES = 'shipment-delivery-notes';
     public const RESOURCE_SHIPMENT_DELIVERY_NOTES_ITEMS = 'items';
 
-    public const CONTROLLER_SHIPMENT_DELIVERY_NOTES = 'shipment-delivery-note-resource';
+    public const CONTROLLER_SHIPMENT_DELIVERY_NOTES = 'shipment-delivery-notes-resource';
     public const CONTROLLER_SHIPMENT_DELIVERY_NOTE__ITEMS = 'shipment-delivery-note-items-resource';
 
     public const ACTION_SHIPMENT_DELIVERY_NOTES_GET = 'get';
@@ -22,6 +22,9 @@ class ShipmentDeliveryNotesRestApiConfig extends AbstractBundleConfig
     public const RESPONSE_CODE_ITEM_NOT_FOUND = '103';
     public const RESPONSE_CODE_INVOICE_ID_MISSING = '104';
     public const RESPONSE_CODE_FAILED_CREATING_INVOICE = '107';
+
+
+    public const QUERY_STRING_PARAMETER_ORDER_REFERENCE = 'order_reference';
 
    /* public const EXCEPTION_MESSAGE_INVOICE_ID_MISSING = 'Invoice uuid is missing.';
     public const EXCEPTION_MESSAGE_FAILED_TO_CREATE_INVOICE = 'Failed to create invoice.';

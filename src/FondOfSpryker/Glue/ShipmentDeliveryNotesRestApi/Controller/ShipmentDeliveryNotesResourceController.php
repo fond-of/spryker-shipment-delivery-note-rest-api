@@ -10,7 +10,7 @@ use Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface;
 use Spryker\Glue\Kernel\Controller\AbstractController;
 
 /**
- * @method \Spryker\Glue\ShipmentDeliveryNotesRestApi\ShipmentDeliveryNotesRestApiFactory getFactory()
+ * @method \FondOfSpryker\Glue\ShipmentDeliveryNotesRestApi\ShipmentDeliveryNotesRestApiFactory getFactory()
  */
 class ShipmentDeliveryNotesResourceController extends AbstractController
 {
@@ -18,7 +18,7 @@ class ShipmentDeliveryNotesResourceController extends AbstractController
      * @Glue({
      *     "getResourceById": {
      *          "summary": [
-     *              "Retrieves invoice by OrderReference."
+     *              "Retrieves shipment delivery notes by OrderReference."
      *          ],
      *          "parameters": [{
      *              "name": "Accept-Language",
@@ -46,7 +46,6 @@ class ShipmentDeliveryNotesResourceController extends AbstractController
      */
     public function getAction(RestRequestInterface $restRequest): RestResponseInterface
     {
-        exit('2');
         return $this->getFactory()->createShipmentDeliveryNoteReader()->getShipmentDeliveryNoteAttributes($restRequest);
     }
 
